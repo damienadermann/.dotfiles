@@ -36,6 +36,7 @@ Bundle 'FuzzyFinder'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-cucumber'
+Bundle 'scrooloose/syntastic'
 
 if has("autocmd")
     au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
