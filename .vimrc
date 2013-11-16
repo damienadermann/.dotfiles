@@ -1,12 +1,20 @@
+" Damien Adermanns vimrc
 "
+" Notes
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 "
 
+" --- Set Up ---
 set nocompatible    "run in vim mode
 filetype off        "Required for vundle
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
+" --- \Set Up ---
+
+
+" --- Settings ---
 
 set expandtab       "expand tabs into spaces
 set autoindent      "auto-indent new lines
@@ -23,9 +31,13 @@ set wrap            "turn on visual word wrapping
 set linebreak       "only break lines on 'breakat' characters
 set hlsearch        "highlight search matches"
 set wildchar=<Tab> wildmenu wildmode=full "wildmenu for easier buffer switching"
-"set autochdir       "turn on auto change directory"
 syntax on           "turn on syntax highlighting
+"set autochdir       "turn on auto change directory"
 
+" --- \Settings ---
+
+
+" --- Vundle ---
 Bundle 'gmarik/vundle'
 
 "Vim-scripts repos
@@ -38,21 +50,18 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-cucumber'
 Bundle 'scrooloose/syntastic'
 Bundle 'Raimondi/delimitMate'
-Bundle 'altercation/vim-colors-solarized'
+Bundle 'Valloric/YouCompleteMe'
 
-"Colors
-set background=dark
-let g:solarized_termtrans=1
-"let g:solarized_termcolors=256
-"let g:solarized_contrast="high"
-"let g:solarized_visibility="high"
-colorscheme solarized
+" --- \Vundle ---
 
+" --- Key Mappings ---
 
-if has("autocmd")
-    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-\| exe "normal g'\"" | endif
-endif
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" --- \Key Mappings ---
+
+" --- Extras ----
 
 augroup filetypedetect
     au! BufRead,BufNewFile *nc setfiletype nc "http://www.vim.org/scripts/script.php?script_id=1847
@@ -64,3 +73,11 @@ augroup END
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 "
+" --- \Extras ----
+
+" --- graveyard ---
+
+"if has("autocmd")
+""    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+"\| exe "normal g'\"" | endif
+"endif
