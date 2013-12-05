@@ -48,16 +48,22 @@ Bundle 'FuzzyFinder'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-ragtag'
 Bundle 'scrooloose/syntastic'
 Bundle 'Raimondi/delimitMate'
-Bundle 'Valloric/YouCompleteMe'
+Bundle 'mattn/emmet-vim'
 
 " --- \Vundle ---
 
 " --- Key Mappings ---
 
+"edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
+"ctags
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " --- \Key Mappings ---
 
