@@ -39,14 +39,15 @@ Bundle 'tpope/vim-cucumber'
 Bundle 'scrooloose/syntastic'
 Bundle 'Raimondi/delimitMate'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'bling/vim-airline'
 
 "Colors
-set background=dark
-let g:solarized_termtrans=1
+"set background=dark
+"let g:solarized_termtrans=1
 "let g:solarized_termcolors=256
 "let g:solarized_contrast="high"
 "let g:solarized_visibility="high"
-colorscheme solarized
+"colorscheme solarized
 
 
 if has("autocmd")
