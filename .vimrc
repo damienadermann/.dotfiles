@@ -43,6 +43,7 @@ Bundle 'gmarik/vundle'
 "Vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
+Bundle 'yaifa.vim'
 
 "Git Repos
 Bundle 'tpope/vim-rails'
