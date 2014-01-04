@@ -52,10 +52,15 @@ Bundle 'tpope/vim-ragtag'
 Bundle 'scrooloose/syntastic'
 Bundle 'Raimondi/delimitMate'
 Bundle 'mattn/emmet-vim'
+Bundle 'bling/vim-airline'
+Bundle 'kchmck/vim-coffee-script'
 
 " --- \Vundle ---
 
 " --- Key Mappings ---
+
+"Leader"
+let mapleader = "\\"
 
 "edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -79,6 +84,12 @@ augroup END
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 "
+" For vim-coffee-script
+filetype plugin indent on
+syntax enable
+filetype off
+filetype on
+
 " --- \Extras ----
 
 " --- graveyard ---
