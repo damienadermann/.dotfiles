@@ -69,7 +69,13 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-" --- Extras ----
+" --- Colors ---
+" solarized options
+syntax enable
+set background=dark
+colorscheme solarized
+
+" --- Extras ---
 
 augroup filetypedetect
     au! BufRead,BufNewFile *nc setfiletype nc "http://www.vim.org/scripts/script.php?script_id=1847
