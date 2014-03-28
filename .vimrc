@@ -54,7 +54,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'Raimondi/delimitMate'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
-
+Bundle 'AD7six/vim-independence'
 Bundle 'mattn/emmet-vim'
 
 " --- \Vundle ---
