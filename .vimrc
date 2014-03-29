@@ -43,7 +43,7 @@ Bundle 'gmarik/vundle'
 "Vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
-Bundle 'yaifa.vim'
+"Bundle 'yaifa.vim'
 
 "Git Repos
 Bundle 'tpope/vim-rails'
@@ -91,7 +91,11 @@ augroup END
 "Show trailing white space"
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
-"
+
+"Show Tabs
+set list
+set listchars=tab:\|\ 
+
 " For vim-coffee-script
 filetype plugin indent on
 syntax enable
