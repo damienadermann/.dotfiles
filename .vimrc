@@ -19,9 +19,9 @@ call vundle#rc()
 set expandtab       "expand tabs into spaces
 set autoindent      "auto-indent new lines
 set smartindent     "return ending brackets to proper locations
-set softtabstop=4   "indentation level of soft-tabs
-set tabstop=4       "indentation leves of normal tabs
-set shiftwidth=4    "how many columns to re-indent with << and >>
+set softtabstop=2   "indentation level of soft-tabs
+set tabstop=2       "indentation leves of normal tabs
+set shiftwidth=2    "how many columns to re-indent with << and >>
 set bs=2            "fix backspace on some consoles
 set showmatch       "show matching brackets
 set ruler           "show cursor position at all times
