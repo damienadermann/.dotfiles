@@ -19,9 +19,9 @@ call vundle#rc()
 set expandtab       "expand tabs into spaces
 set autoindent      "auto-indent new lines
 set smartindent     "return ending brackets to proper locations
-set softtabstop=2   "indentation level of soft-tabs
-set tabstop=2       "indentation leves of normal tabs
-set shiftwidth=2    "how many columns to re-indent with << and >>
+set softtabstop=4   "indentation level of soft-tabs
+set tabstop=4       "indentation leves of normal tabs
+set shiftwidth=4    "how many columns to re-indent with << and >>
 set bs=2            "fix backspace on some consoles
 set showmatch       "show matching brackets
 set ruler           "show cursor position at all times
@@ -43,6 +43,7 @@ Bundle 'gmarik/vundle'
 "Vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
+Bundle 'yaifa.vim'
 
 "Git Repos
 Bundle 'tpope/vim-rails'
@@ -51,6 +52,9 @@ Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-ragtag'
 Bundle 'scrooloose/syntastic'
 Bundle 'Raimondi/delimitMate'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'bling/vim-airline'
+Bundle 'AD7six/vim-independence'
 Bundle 'mattn/emmet-vim'
 Bundle 'bling/vim-airline'
 Bundle 'kchmck/vim-coffee-script'
@@ -70,9 +74,13 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-" --- \Key Mappings ---
+" --- Colors ---
+" solarized options
+syntax enable
+set background=dark
+colorscheme solarized
 
-" --- Extras ----
+" --- Extras ---
 
 augroup filetypedetect
     au! BufRead,BufNewFile *nc setfiletype nc "http://www.vim.org/scripts/script.php?script_id=1847
