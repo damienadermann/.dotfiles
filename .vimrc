@@ -43,6 +43,10 @@ Bundle 'gmarik/vundle'
 "Vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
+Bundle 'tobyS/vmustache'
+Bundle 'tobyS/pdv'
 "Bundle 'yaifa.vim'
 
 "Git Repos
@@ -59,6 +63,25 @@ Bundle 'mattn/emmet-vim'
 
 " --- \Vundle ---
 
+" --- Vundle Config ---
+
+"ultisnips
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+"pdv
+let g:pdv_template_dir = $HOME."/.vim/bundle/pdv/templates_snip"
+nnoremap <C-p> :call pdv#DocumentWithSnip()<CR>
+
+" solarized options
+syntax enable
+set background=dark
+colorscheme solarized
+
+" --- \Vundle Config --
+
 " --- Key Mappings ---
 
 "edit vimrc
@@ -68,12 +91,6 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 "ctags
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-
-" --- Colors ---
-" solarized options
-syntax enable
-set background=dark
-colorscheme solarized
 
 " --- Extras ---
 
@@ -92,10 +109,3 @@ match ExtraWhitespace /\s\+$/
 :set listchars=tab:\|\ 
 
 " --- \Extras ----
-
-" --- graveyard ---
-
-"if has("autocmd")
-""    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-"\| exe "normal g'\"" | endif
-"endif
