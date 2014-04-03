@@ -47,7 +47,6 @@ Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 Bundle 'tobyS/vmustache'
 Bundle 'tobyS/pdv'
-"Bundle 'yaifa.vim'
 
 "Git Repos
 Bundle 'tpope/vim-rails'
@@ -60,6 +59,8 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
 Bundle 'AD7six/vim-independence'
 Bundle 'mattn/emmet-vim'
+Bundle 'bling/vim-airline'
+Bundle 'kchmck/vim-coffee-script'
 
 " --- \Vundle ---
 
@@ -84,6 +85,9 @@ colorscheme solarized
 
 " --- Key Mappings ---
 
+"Leader"
+let mapleader = "\\"
+
 "edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -104,8 +108,14 @@ augroup END
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
-"Show tabs
-:set list
-:set listchars=tab:\|\ 
+"Show Tabs
+set list
+set listchars=tab:\|\ 
+
+" For vim-coffee-script
+filetype plugin indent on
+syntax enable
+filetype off
+filetype on
 
 " --- \Extras ----
