@@ -54,9 +54,9 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-ragtag'
 Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdtree'
 Bundle 'Raimondi/delimitMate'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'bling/vim-airline'
 Bundle 'AD7six/vim-independence'
 Bundle 'mattn/emmet-vim'
 Bundle 'bling/vim-airline'
@@ -80,6 +80,15 @@ nnoremap <C-p> :call pdv#DocumentWithSnip()<CR>
 syntax enable
 set background=dark
 colorscheme solarized
+
+"vim-airline
+set laststatus=2
+
+"Nerdtree"
+"Close Nerdtree if only remaining window
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif 
+"Toggle Nerdtree
+map <C-n> :NERDTreeToggle<CR> 
 
 " --- \Vundle Config --
 
