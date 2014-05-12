@@ -13,6 +13,34 @@ call vundle#rc()
 
 " --- \Set Up ---
 
+" --- Vundle ---
+Bundle 'gmarik/vundle'
+
+"Vim-scripts repos
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'yaifa.vim'
+
+"Git Repos
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
+Bundle 'tobyS/vmustache'
+Bundle 'tobyS/pdv'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-ragtag'
+Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdtree'
+Bundle 'Raimondi/delimitMate'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'AD7six/vim-independence'
+Bundle 'mattn/emmet-vim'
+Bundle 'bling/vim-airline'
+Bundle 'kchmck/vim-coffee-script'
+
+" --- \Vundle ---
+
 
 " --- Settings ---
 
@@ -32,39 +60,15 @@ set linebreak       "only break lines on 'breakat' characters
 set hlsearch        "highlight search matches"
 set wildchar=<Tab> wildmenu wildmode=full "wildmenu for easier buffer switching"
 syntax on           "turn on syntax highlighting
-"set autochdir       "turn on auto change directory"
 
 " --- \Settings ---
 
-
-" --- Vundle ---
-Bundle 'gmarik/vundle'
-
-"Vim-scripts repos
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
-Bundle 'tobyS/vmustache'
-Bundle 'tobyS/pdv'
-
-"Git Repos
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-ragtag'
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdtree'
-Bundle 'Raimondi/delimitMate'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'AD7six/vim-independence'
-Bundle 'mattn/emmet-vim'
-Bundle 'bling/vim-airline'
-Bundle 'kchmck/vim-coffee-script'
-
-" --- \Vundle ---
-
 " --- Vundle Config ---
+
+" solarized options
+syntax enable
+set background=dark
+colorscheme solarized
 
 "ultisnips
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -75,11 +79,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 "pdv
 let g:pdv_template_dir = $HOME."/.vim/bundle/pdv/templates_snip"
 nnoremap <C-p> :call pdv#DocumentWithSnip()<CR>
-
-" solarized options
-syntax enable
-set background=dark
-colorscheme solarized
 
 "vim-airline
 set laststatus=2
