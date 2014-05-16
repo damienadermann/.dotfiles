@@ -12,6 +12,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " --- \Set Up ---
+"
 
 " --- Vundle ---
 Bundle 'gmarik/vundle'
@@ -19,7 +20,7 @@ Bundle 'gmarik/vundle'
 "Vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
-Bundle 'yaifa.vim'
+Bundle 'IndentConsistencyCop'
 
 "Git Repos
 Bundle 'SirVer/ultisnips'
