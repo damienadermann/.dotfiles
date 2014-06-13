@@ -19,7 +19,6 @@ Bundle 'gmarik/vundle'
 "Vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
-Bundle 'yaifa.vim'
 
 "Git Repos
 Bundle 'SirVer/ultisnips'
@@ -45,6 +44,7 @@ Bundle 'kchmck/vim-coffee-script'
 " --- Settings ---
 
 set expandtab       "expand tabs into spaces
+set shiftround
 set autoindent      "auto-indent new lines
 set smartindent     "return ending brackets to proper locations
 set softtabstop=4   "indentation level of soft-tabs
@@ -61,9 +61,18 @@ set hlsearch        "highlight search matches"
 set wildchar=<Tab> wildmenu wildmode=full "wildmenu for easier buffer switching"
 syntax on           "turn on syntax highlighting
 
+au FileType coffee setl shiftwidth=2 tabstop=2 softtabstop=2 et
+au FileType php setl shiftwidth=4 tabstop=4 softtabstop=4 et
+au FileType js setl shiftwidth=4 tabstop=4 softtabstop=4 et
+
 " --- \Settings ---
 
 " --- Vundle Config ---
+
+"  syntastic
+let g:syntastic_mode_map = { 'mode': 'active',
+                \ 'active_filetypes': ['ruby', 'php'],
+                \ 'passive_filetypes': ['puppet'] }
 
 " solarized options
 syntax enable
