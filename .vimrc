@@ -12,6 +12,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " --- \Set Up ---
+"
 
 " --- Vundle ---
 Bundle 'gmarik/vundle'
@@ -31,6 +32,7 @@ Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-ragtag'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'Raimondi/delimitMate'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'AD7six/vim-independence'
@@ -120,14 +122,9 @@ augroup filetypedetect
     "html.ep now handled by https://github.com/yko/mojo.vim
 augroup END
 
-
-"Show trailing white space"
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-
-"Show Tabs
+"Show Tabs and trailing spaces
 set list
-set listchars=tab:\|\ 
+set listchars=tab:→\ ,trail:·,nbsp:·
 
 " For vim-coffee-script
 filetype plugin indent on
