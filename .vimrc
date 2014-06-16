@@ -12,11 +12,41 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " --- \Set Up ---
+"
+
+" --- Vundle ---
+Bundle 'gmarik/vundle'
+
+"Vim-scripts repos
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+
+"Git Repos
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
+Bundle 'tobyS/vmustache'
+Bundle 'tobyS/pdv'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-ragtag'
+Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'Raimondi/delimitMate'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'AD7six/vim-independence'
+Bundle 'mattn/emmet-vim'
+Bundle 'bling/vim-airline'
+Bundle 'kchmck/vim-coffee-script'
+
+" --- \Vundle ---
 
 
 " --- Settings ---
 
 set expandtab       "expand tabs into spaces
+set shiftround
 set autoindent      "auto-indent new lines
 set smartindent     "return ending brackets to proper locations
 set softtabstop=4   "indentation level of soft-tabs
@@ -32,39 +62,24 @@ set linebreak       "only break lines on 'breakat' characters
 set hlsearch        "highlight search matches"
 set wildchar=<Tab> wildmenu wildmode=full "wildmenu for easier buffer switching"
 syntax on           "turn on syntax highlighting
-"set autochdir       "turn on auto change directory"
+
+au FileType coffee setl shiftwidth=2 tabstop=2 softtabstop=2 et
+au FileType php setl shiftwidth=4 tabstop=4 softtabstop=4 et
+au FileType js setl shiftwidth=4 tabstop=4 softtabstop=4 et
 
 " --- \Settings ---
 
-
-" --- Vundle ---
-Bundle 'gmarik/vundle'
-
-"Vim-scripts repos
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
-Bundle 'tobyS/vmustache'
-Bundle 'tobyS/pdv'
-
-"Git Repos
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-cucumber'
-Bundle 'tpope/vim-ragtag'
-Bundle 'scrooloose/syntastic'
-Bundle 'Raimondi/delimitMate'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'bling/vim-airline'
-Bundle 'AD7six/vim-independence'
-Bundle 'mattn/emmet-vim'
-Bundle 'bling/vim-airline'
-Bundle 'kchmck/vim-coffee-script'
-
-" --- \Vundle ---
-
 " --- Vundle Config ---
+
+"  syntastic
+let g:syntastic_mode_map = { 'mode': 'active',
+                \ 'active_filetypes': ['ruby', 'php'],
+                \ 'passive_filetypes': ['puppet'] }
+
+" solarized options
+syntax enable
+set background=dark
+colorscheme solarized
 
 "ultisnips
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -76,10 +91,14 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:pdv_template_dir = $HOME."/.vim/bundle/pdv/templates_snip"
 nnoremap <C-p> :call pdv#DocumentWithSnip()<CR>
 
-" solarized options
-syntax enable
-set background=dark
-colorscheme solarized
+"vim-airline
+set laststatus=2
+
+"Nerdtree"
+"Close Nerdtree if only remaining window
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif 
+"Toggle Nerdtree
+map <C-n> :NERDTreeToggle<CR> 
 
 " --- \Vundle Config --
 
@@ -103,14 +122,9 @@ augroup filetypedetect
     "html.ep now handled by https://github.com/yko/mojo.vim
 augroup END
 
-
-"Show trailing white space"
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-
-"Show Tabs
+"Show Tabs and trailing spaces
 set list
-set listchars=tab:\|\ 
+set listchars=tab:→\ ,trail:·,nbsp:·
 
 " For vim-coffee-script
 filetype plugin indent on
