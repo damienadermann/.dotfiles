@@ -20,6 +20,7 @@ Bundle 'gmarik/vundle'
 "Vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
+Bundle 'ctrlax.vim'
 
 "Git Repos
 Bundle 'SirVer/ultisnips'
@@ -31,6 +32,7 @@ Bundle 'thoughtbot/vim-rspec'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
@@ -40,6 +42,7 @@ Bundle 'AD7six/vim-independence'
 Bundle 'mattn/emmet-vim'
 Bundle 'bling/vim-airline'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'mxw/vim-jsx.git'
 
 " --- \Vundle ---
 
@@ -61,7 +64,8 @@ set number          "turn on line numbering
 set wrap            "turn on visual word wrapping
 set linebreak       "only break lines on 'breakat' characters
 set hlsearch        "highlight search matches"
-set wildchar=<Tab> wildmenu wildmode=full "wildmenu for easier buffer switching"
+set wildchar=<Tab> wildmenu wildmode=full "wildmenu for easier buffer switching
+set colorcolumn=81  "Adds a divide showing when a column is wider than 80 characters
 syntax on           "turn on syntax highlighting
 
 au BufRead,BufNewFile *.blade.php set filetype=html
@@ -93,7 +97,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 "pdv
 let g:pdv_template_dir = $HOME."/.vim/bundle/pdv/templates_snip"
-nnoremap <C-p> :call pdv#DocumentWithSnip()<CR>
+nnoremap <C-o> :call pdv#DocumentWithSnip()<CR>
 
 "vim-airline
 set laststatus=2
