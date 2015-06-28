@@ -20,6 +20,7 @@ Bundle 'gmarik/vundle'
 "Vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
+Bundle 'ctrlax.vim'
 
 "Git Repos
 Bundle 'SirVer/ultisnips'
@@ -27,9 +28,11 @@ Bundle 'honza/vim-snippets'
 Bundle 'tobyS/vmustache'
 Bundle 'tobyS/pdv'
 Bundle 'tpope/vim-rails'
+Bundle 'thoughtbot/vim-rspec'
 Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
@@ -39,6 +42,7 @@ Bundle 'AD7six/vim-independence'
 Bundle 'mattn/emmet-vim'
 Bundle 'bling/vim-airline'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'mxw/vim-jsx.git'
 
 " --- \Vundle ---
 
@@ -49,9 +53,9 @@ set expandtab       "expand tabs into spaces
 set shiftround
 set autoindent      "auto-indent new lines
 set smartindent     "return ending brackets to proper locations
-set softtabstop=4   "indentation level of soft-tabs
-set tabstop=4       "indentation leves of normal tabs
-set shiftwidth=4    "how many columns to re-indent with << and >>
+set softtabstop=2   "indentation level of soft-tabs
+set tabstop=2       "indentation leves of normal tabs
+set shiftwidth=2    "how many columns to re-indent with << and >>
 set bs=2            "fix backspace on some consoles
 set showmatch       "show matching brackets
 set ruler           "show cursor position at all times
@@ -60,10 +64,14 @@ set number          "turn on line numbering
 set wrap            "turn on visual word wrapping
 set linebreak       "only break lines on 'breakat' characters
 set hlsearch        "highlight search matches"
-set wildchar=<Tab> wildmenu wildmode=full "wildmenu for easier buffer switching"
+set wildchar=<Tab> wildmenu wildmode=full "wildmenu for easier buffer switching
+set colorcolumn=81  "Adds a divide showing when a column is wider than 80 characters
 syntax on           "turn on syntax highlighting
 
+au BufRead,BufNewFile *.blade.php set filetype=html
 au FileType coffee setl shiftwidth=2 tabstop=2 softtabstop=2 et
+au FileType rb setl shiftwidth=2 tabstop=2 softtabstop=2 et
+au FileType html setl shiftwidth=2 tabstop=2 softtabstop=2 et
 au FileType php setl shiftwidth=4 tabstop=4 softtabstop=4 et
 au FileType js setl shiftwidth=4 tabstop=4 softtabstop=4 et
 
@@ -89,16 +97,22 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 "pdv
 let g:pdv_template_dir = $HOME."/.vim/bundle/pdv/templates_snip"
-nnoremap <C-p> :call pdv#DocumentWithSnip()<CR>
+nnoremap <C-o> :call pdv#DocumentWithSnip()<CR>
 
 "vim-airline
 set laststatus=2
 
-"Nerdtree"
+"Nerdtree
 "Close Nerdtree if only remaining window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif 
 "Toggle Nerdtree
-map <C-n> :NERDTreeToggle<CR> 
+map <C-n> :NERDTreeToggle<CR>
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 
 " --- \Vundle Config --
 
