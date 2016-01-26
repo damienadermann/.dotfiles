@@ -9,41 +9,47 @@ set nocompatible    "run in vim mode
 filetype off        "Required for vundle
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
 " --- \Set Up ---
 "
 
 " --- Vundle ---
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 "Vim-scripts repos
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'ctrlax.vim'
+Plugin 'L9'
+Plugin 'FuzzyFinder'
+Plugin 'ctrlax.vim'
+Plugin 'ctrlp.vim'
 
 "Git Repos
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
-Bundle 'tobyS/vmustache'
-Bundle 'tobyS/pdv'
-Bundle 'tpope/vim-rails'
-Bundle 'thoughtbot/vim-rspec'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-ragtag'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'Raimondi/delimitMate'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'AD7six/vim-independence'
-Bundle 'mattn/emmet-vim'
-Bundle 'bling/vim-airline'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'mxw/vim-jsx.git'
+Plugin 'honza/vim-snippets'
+Plugin 'tobyS/vmustache'
+Plugin 'tobyS/pdv'
+Plugin 'tpope/vim-rails'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-ragtag'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'Raimondi/delimitMate'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'AD7six/vim-independence'
+Plugin 'mattn/emmet-vim'
+Plugin 'bling/vim-airline'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'mxw/vim-jsx.git'
+Plugin 'slim-template/vim-slim.git'
 
+"Disabled Repos
+"Plugin 'SirVer/ultisnips'
+
+call vundle#end()
+filetype plugin indent on
 " --- \Vundle ---
 
 
