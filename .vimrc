@@ -18,15 +18,15 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 "Vim-scripts repos
-Plugin 'L9'
-Plugin 'FuzzyFinder'
-Plugin 'ctrlax.vim'
+" Project searching
+" Ctrl p
 Plugin 'ctrlp.vim'
 
-"Git Repos
+"Snippets
+" Tab to use snippet
+Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'tobyS/vmustache'
-Plugin 'tobyS/pdv'
+
 Plugin 'tpope/vim-rails'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-endwise'
@@ -46,7 +46,6 @@ Plugin 'mxw/vim-jsx.git'
 Plugin 'slim-template/vim-slim.git'
 
 "Disabled Repos
-"Plugin 'SirVer/ultisnips'
 
 call vundle#end()
 filetype plugin indent on
@@ -74,16 +73,38 @@ set wildchar=<Tab> wildmenu wildmode=full "wildmenu for easier buffer switching
 set colorcolumn=81  "Adds a divide showing when a column is wider than 80 characters
 syntax on           "turn on syntax highlighting
 
+" Disable swp files
+set noswapfile
+
+" ---- Tabs ---
 au BufRead,BufNewFile *.blade.php set filetype=html
 au FileType coffee setl shiftwidth=2 tabstop=2 softtabstop=2 et
 au FileType rb setl shiftwidth=2 tabstop=2 softtabstop=2 et
 au FileType html setl shiftwidth=2 tabstop=2 softtabstop=2 et
 au FileType php setl shiftwidth=4 tabstop=4 softtabstop=4 et
 au FileType js setl shiftwidth=4 tabstop=4 softtabstop=4 et
+" ---- \Tabs ---
 
 " --- \Settings ---
 
 " --- Vundle Config ---
+
+" ctrlp
+" Speed Up!
+" Persist cache
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+
+" Use the silver searcher for speed
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
+"Ignore certain types of files
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$',
+  \ 'file': '\.exe$\|\.so$\|\.dat$'
+  \ }
+
 
 "  syntastic
 let g:syntastic_mode_map = { 'mode': 'active',
@@ -100,10 +121,6 @@ colorscheme solarized
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-"pdv
-let g:pdv_template_dir = $HOME."/.vim/bundle/pdv/templates_snip"
-nnoremap <C-o> :call pdv#DocumentWithSnip()<CR>
 
 "vim-airline
 set laststatus=2
