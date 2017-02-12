@@ -33,6 +33,7 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
@@ -42,8 +43,13 @@ Plugin 'AD7six/vim-independence'
 Plugin 'mattn/emmet-vim'
 Plugin 'bling/vim-airline'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'othree/html5.vim'
 Plugin 'mxw/vim-jsx.git'
 Plugin 'slim-template/vim-slim.git'
+Plugin 'pangloss/vim-javascript'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'leafgarland/typescript-vim'
 
 "Disabled Repos
 
@@ -101,15 +107,16 @@ endif
 
 "Ignore certain types of files
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$',
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp|\node_modules$',
   \ 'file': '\.exe$\|\.so$\|\.dat$'
   \ }
 
 
 "  syntastic
 let g:syntastic_mode_map = { 'mode': 'active',
-                \ 'active_filetypes': ['ruby', 'php'],
+                \ 'active_filetypes': ['ruby', 'php', 'js'],
                 \ 'passive_filetypes': ['puppet'] }
+let g:syntastic_javascript_checkers = ['eslint', 'flow']
 
 " solarized options
 syntax enable
@@ -136,6 +143,9 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+" vim-jsx
+let g:jsx_ext_required = 0 "enable jsx in all .js files
 
 " --- \Vundle Config --
 
@@ -168,5 +178,7 @@ filetype plugin indent on
 syntax enable
 filetype off
 filetype on
+
+imap jj <Esc>
 
 " --- \Extras ----
