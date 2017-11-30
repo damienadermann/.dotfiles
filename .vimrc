@@ -29,12 +29,13 @@ Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Raimondi/delimitMate'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'pangloss/vim-javascript'
+Plugin 'mileszs/ack.vim'
 
 "language support
 Plugin 'kchmck/vim-coffee-script'
@@ -43,6 +44,7 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'slashmili/alchemist.vim'
 Plugin 'othree/html5.vim'
 Plugin 'mxw/vim-jsx.git'
+Plugin 'rhysd/vim-crystal'
 
 "Disabled Repos
 
@@ -105,12 +107,7 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 
-"  syntastic
-let g:syntastic_mode_map = { 'mode': 'active',
-                \ 'active_filetypes': ['ruby', 'php', 'js'],
-                \ 'passive_filetypes': ['puppet'] }
-let g:syntastic_javascript_checkers = ['eslint', 'flow']
-let g:syntastic_ruby_checkers  = ['rubocop', 'mri']
+" Ale
 
 " solarized options
 syntax enable
@@ -128,6 +125,11 @@ map <C-n> :NERDTreeToggle<CR>
 
 " vim-jsx
 let g:jsx_ext_required = 0 "enable jsx in all .js files
+
+"Ack.vim
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " --- \Vundle Config --
 
