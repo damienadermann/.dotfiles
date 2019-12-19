@@ -36,12 +36,13 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mileszs/ack.vim'
+Plugin 'zxqfl/tabnine-vim'
 
 "language support
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'flowtype/vim-flow'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'slashmili/alchemist.vim'
+Plugin 'mhinz/vim-mix-format'
 Plugin 'othree/html5.vim'
 Plugin 'mxw/vim-jsx.git'
 Plugin 'rhysd/vim-crystal'
@@ -160,5 +161,8 @@ set listchars=tab:→\ ,trail:·,nbsp:·
 
 " Escape shortcut
 imap jj <Esc>
+
+" vim-mix-format
+" let g:mix_format_on_save = 1 " Still broken
 
 " --- \Extras ----
