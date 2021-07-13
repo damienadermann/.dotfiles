@@ -10,33 +10,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-export NVM_DIR="$HOME/.nvm"
-.  "/usr/local/opt/nvm/nvm.sh"
-
-# place this after nvm initialization!
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
-
-eval "$(rbenv init -)"
-
 # Customize to your needs...
 export EDITOR=vim
 export VISUAL=vim
@@ -77,8 +50,6 @@ export PATH="/usr/local/opt/elasticsearch@2.4/bin:$PATH"
 
 source /usr/local/opt/asdf/asdf.sh
 
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 function killport() {
   kill -9 $( lsof -i:$1 -t )
 }
@@ -86,3 +57,7 @@ function killport() {
 function tunneldw() {
   ssh -nNT -o ServerAliveInterval=50 -L 127.0.0.1:5439:redshift.internal.dw.net:5439 damienadermann@ssh.dw.envato.net
 }
+export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
+
+
+. /usr/local/opt/asdf/asdf.sh
