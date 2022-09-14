@@ -1,4 +1,3 @@
-" Damien Adermanns vimrc
 "
 " Notes
 " Install vim-plug https://github.com/junegunn/vim-plug
@@ -19,17 +18,24 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+" crs -> snake_case
+" crc -> camelCase
+Plug 'tpope/vim-abolish'
 Plug 'airblade/vim-gitgutter'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Raimondi/delimitMate'
 Plug 'bling/vim-airline'
 Plug 'mileszs/ack.vim'
+Plug 'jcherven/jummidark.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'adelarsq/vim-matchit'
 
 "language support
 
 " Language server
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Javascript and friends
 Plug 'mxw/vim-jsx'
@@ -38,14 +44,11 @@ Plug 'othree/html5.vim'
 
 " Elixir
 Plug 'slashmili/alchemist.vim'
-Plug 'mhinz/vim-mix-format'
-"Plug 'rhysd/vim-crystal'
+"Plug 'mhinz/vim-mix-format'
 
 "Disabled Repos
 "Plug 'elixir-lang/vim-elixir'
 "Plug 'zxqfl/tabnine-vim'
-"Plug 'altercation/vim-colors-solarized'
-"Plug 'ctrlp.vim'
 
 call plug#end()
 
@@ -89,6 +92,14 @@ au FileType js setl shiftwidth=2 tabstop=2 softtabstop=2 et
 
 " --- Vundle Config ---
 
+" Alie
+let g:ale_fixers = {
+\   'javascript': ['prettier', 'eslint'],
+\   'css': ['prettier', 'eslint'],
+\}
+let g:ale_fix_on_save = 1
+
+
 " ctrlp
 " Speed Up!
 " Persist cache
@@ -115,7 +126,13 @@ set laststatus=2
 "Close Nerdtree if only remaining window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif 
 "Toggle Nerdtree
-map <C-n> :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
 "Ack.vim
 if executable('ag')
@@ -149,5 +166,14 @@ imap jj <Esc>
 
 " vim-mix-format
 " let g:mix_format_on_save = 1 " Still broken
+
+set termguicolors     " enable true colors support
+colorscheme jummidark
+
+" Make background darker
+hi Normal ctermbg=16 guibg=#000000
+hi LineNr ctermbg=16 guibg=#000000
+" Make Visual selector lighter
+hi Visual ctermbg=239 guibg=#4e4e4e
 
 " --- \Extras ----
