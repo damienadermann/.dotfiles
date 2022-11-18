@@ -176,4 +176,9 @@ hi LineNr ctermbg=16 guibg=#000000
 " Make Visual selector lighter
 hi Visual ctermbg=239 guibg=#4e4e4e
 
+" Y for yank to clipboard
+nnoremap Y "+y
+vnoremap Y "+y
+nnoremap yY ^"+y$
+
 " --- \Extras ----
