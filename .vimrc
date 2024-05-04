@@ -22,7 +22,7 @@ Plug 'tpope/vim-fugitive'
 " crc -> camelCase
 Plug 'tpope/vim-abolish'
 Plug 'airblade/vim-gitgutter'
-Plug 'dense-analysis/ale'
+"Plug 'dense-analysis/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Raimondi/delimitMate'

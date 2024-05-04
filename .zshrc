@@ -48,8 +48,6 @@ function elements-environment() {
 # /Elements
 export PATH="/usr/local/opt/elasticsearch@2.4/bin:$PATH"
 
-source /usr/local/opt/asdf/asdf.sh
-
 function killport() {
   kill -9 $( lsof -i:$1 -t )
 }
@@ -60,4 +58,17 @@ function tunneldw() {
 export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
 
 
-. /usr/local/opt/asdf/asdf.sh
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+# Herd injected NVM configuration
+export NVM_DIR="/Users/damienadermann/Library/Application Support/Herd/config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+[[ -f "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh" ]] && builtin source "/Applications/Herd.app/Contents/Resources/config/shell/zshrc.zsh"
+
+# Herd injected PHP 8.3 configuration.
+export HERD_PHP_83_INI_SCAN_DIR="/Users/damienadermann/Library/Application Support/Herd/config/php/83/"
+
+
+# Herd injected PHP binary.
+export PATH="/Users/damienadermann/Library/Application Support/Herd/bin/":$PATH
