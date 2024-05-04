@@ -28,9 +28,13 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Raimondi/delimitMate'
 Plug 'bling/vim-airline'
 Plug 'mileszs/ack.vim'
-Plug 'jcherven/jummidark.vim'
+" colorschemes https://vimcolorschemes.com/rainglow/vim/
+Plug 'rainglow/vim'
 Plug 'kien/ctrlp.vim'
 Plug 'adelarsq/vim-matchit'
+Plug 'StanAngeloff/php.vim'
+Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o'}
+Plug 'noahfrederick/vim-laravel'
 
 "language support
 
@@ -168,13 +172,14 @@ imap jj <Esc>
 " let g:mix_format_on_save = 1 " Still broken
 
 set termguicolors     " enable true colors support
-colorscheme jummidark
+" let g:tokyonight_style = 'night' " available: night, storm
+" let g:tokyonight_enable_italic = 1
 
-" Make background darker
-hi Normal ctermbg=16 guibg=#000000
-hi LineNr ctermbg=16 guibg=#000000
-" Make Visual selector lighter
-hi Visual ctermbg=239 guibg=#4e4e4e
+" https://vimcolorschemes.com/rainglow/vim/
+"colorscheme laracasts-contrast
+" colorscheme laracasts-contrast
+" colorscheme laravel
+colorscheme tonic-contrast
 
 " Y for yank to clipboard
 nnoremap Y "+y
