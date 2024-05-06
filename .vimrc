@@ -35,6 +35,7 @@ Plug 'adelarsq/vim-matchit'
 Plug 'StanAngeloff/php.vim'
 Plug 'phpactor/phpactor', {'for': 'php', 'tag': '*', 'do': 'composer install --no-dev -o'}
 Plug 'noahfrederick/vim-laravel'
+Plug 'sheerun/vim-polyglot'
 
 "language support
 
